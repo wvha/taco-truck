@@ -7,6 +7,31 @@ $(document).ready(function() {
         // console.log(response);
         window.apiData = response;
         console.log('apidata: ', apiData);
+        let target = document.getElementById("list");
+        
+
+        for (let i = 0; i < response.length; i++) {
+            let current = window.apiData[i];
+            let date = 
+            $("#list").append(`
+                <div class="card container" style="width: 90%;">
+                    <p>Taco Truck ${current.id}</p>
+                    <p class="address">
+                        ${current.address}
+                        <br />
+                        ${current.city + ', ' + current.state + ' ' + current.postal_code}
+                    </p>
+                    <p class="open-until">
+                        Open today until 
+                    </p>
+                    <p>
+                        <img class="assets/phone-icon.png" />
+                        number??
+                </div>
+            `);
+        }
+
+        // target.innerHTML = content;
     });
 
     // DEMO
