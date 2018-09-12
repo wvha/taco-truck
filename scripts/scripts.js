@@ -4,8 +4,9 @@ $(document).ready(function() {
         url: 'https://my.api.mockaroo.com/locations.json?key=a45f1200',
         dataType: 'json'
     }).success(function (response) {
-        // work with response data here
-        console.log(response);
+        // console.log(response);
+        window.apiData = response;
+        console.log('apidata: ', apiData);
     });
 
     // DEMO

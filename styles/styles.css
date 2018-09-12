@@ -1,1 +1,18 @@
 /* CUSTOM STYLES HERE */
+
+.container {
+  max-width: 800px;
+  border-width: 1px;
+  display: flex;
+}
+
+.nav-link {
+  color: grey;
+}
+
+.half-container {
+  height: 600px;
+  width: 50%;
+  background-color: blue;
+  
+}
