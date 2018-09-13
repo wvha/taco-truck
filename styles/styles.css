@@ -2,7 +2,6 @@
 
 .container {
   max-width: 800px;
-  border-width: 1px;
   display: flex;
 }
 
@@ -10,9 +9,52 @@
   color: grey;
 }
 
+
 .half-container {
   height: 600px;
-  width: 50%;
+  width: 400px;
+}
+
+#list {
+  background-color: white;
+  overflow: auto;
+
+  padding: 20px;
+}
+
+.row {
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  border-color: rgb(180, 180, 180);
+}
+
+#map-half {
   background-color: grey;
+}
+
+.card {
+  padding: 15px;
+  margin-bottom: 10px;
   
+}
+
+.open-until {
+  color: green;
+}
+
+.phone-number {
+  color: orange;
+}
+
+.buttons {
+  /* padding: 20px;  */
+}
+
+
+
+
+@media (max-width: 768px) {
+  .half-container {
+    width: 90%
+  }
 }
