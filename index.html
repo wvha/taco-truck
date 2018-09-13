@@ -12,12 +12,14 @@
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
         <script type="text/javascript" src="scripts/scripts.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxHzdqfYWJ0G93xVaqVEj3tCp5-oNKTMc&callback=initMap"
+        type="text/javascript"></script>
     </head>
     <body>
 
         <!-- DEMO -->
         <!-- <div class="navbar"> -->
-        <nav class="navbar navbar-expand-sm navbar-light ">
+        <nav class="navbar navbar-expand-sm navbar-light web">
             <div class="container">
                 <a class="navbar-brand" href="/"><img src="assets/rioseo-logo.png" /></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-links" aria-expanded="false" aria-controls="nav-links">
@@ -37,6 +39,17 @@
                     </ul>
                 </div>
             </div>
+        </nav>
+
+        <nav class="navbar navbar-dark mobile">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse">
+                    <span class="navbar-toggle-icon"></span>
+                </button>
+                <img src="assets/rioseo-logo-mobile.png" />
+                <img src="assets/location-icon.png" />
+            </div>
+
         </nav>
 
         <div class="main">
@@ -60,7 +73,7 @@
             </div>
         </div>
 
-
+        <!-- insert list and map here  -->
 
 
         <!-- <script>
