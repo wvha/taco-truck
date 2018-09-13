@@ -55,11 +55,13 @@ $(document).ready(function() {
         // target.innerHTML = content;
     });
 
+
+
     $(document).on("click", ".directions", function() {
         let position = $(this).attr("i");
         let latitude = window.apiData[position].latitude;
         let longitude = window.apiData[position].longitude;
-        $('.map').attr('src', `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=13&scale=2&size=200x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:small%7Ccolor:0xff0000%7clabel:1%7C${latitude},${longitude}`)
+        $('.map').attr('src', `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=13&scale=2&size=200x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:small%7Ccolor:0xff0000%7clabel:1%7C${latitude},${longitude}&key=AIzaSyDxHzdqfYWJ0G93xVaqVEj3tCp5-oNKTMc`)
     });
 
     $(document).on("click", ".moreinfo", function() {
