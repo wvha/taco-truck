@@ -78,8 +78,8 @@ $(document).ready(function() {
         $("#overlay").html(`
 
             <div class="popup">
-                <button type="button" id="exit">
-                    <span>&times;</span>
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
                 </button>
 
                 <img id="default-image" src="assets/default-image.png" />
@@ -154,7 +154,7 @@ $(document).ready(function() {
         console.log('map clicked');
     });
 
-    $(document).on("click", "#exit", function() {
+    $(document).on("click", ".close", function() {
         console.log('exit meow');
         $("#overlay").css("display", "none");
     })

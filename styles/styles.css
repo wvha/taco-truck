@@ -75,10 +75,6 @@
   padding: 1rem;
 }
 
-#exit {
-  justify-self: end;
-}
-
 #default-image {
   width: 100%;
   max-height: 50%;
