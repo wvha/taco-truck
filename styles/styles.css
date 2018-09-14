@@ -86,7 +86,7 @@
 
 .popup {
   padding: 1rem;
-
+  background: white;
 }
 
 #default-image {
@@ -127,6 +127,9 @@ For non-mobile devices
   .bottom-nav {
     display: none;
   }
+  .moreinfo-mobile {
+    display: none;
+  }
 }
 
 
@@ -143,7 +146,7 @@ For mobile devices
   }
 
   #map-side {
-    display: none;
+    display: flex;
   }
 
   #list {

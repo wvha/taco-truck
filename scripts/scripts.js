@@ -34,7 +34,8 @@ $(document).ready(function() {
                     </p>
                     <div class="container button-row">
                         <a class="btn btn-secondary buttons directions"
-                            href="#"
+                            href=${'https://www.google.com/maps/dir/?api=1&destination=' + current.address.split(' ').join('+') + '%2C+' + current.city.split(' ').join('+') + '+' + current.state + '+' + current.postal_code}
+                            target="_blank"
                             role="button"
                             i=${i}>
                             DIRECTIONS
@@ -64,12 +65,16 @@ $(document).ready(function() {
         $("#list").addClass("list-hide");
         $("#map-button").addClass("nav-selected");
         $("#list-button").removeClass("nav-selected");
-        
+        $(".moreinfo-mobile").attr("i", position);
+        // $("#overlay").css("display", "none");
+        $("#map-side").css("display", "block");
         $('.map').attr('src', `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=13&scale=2&size=200x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:small%7Ccolor:0xff0000%7clabel:1%7C${latitude},${longitude}&key=AIzaSyDxHzdqfYWJ0G93xVaqVEj3tCp5-oNKTMc`)
     });
 
     $(document).on("click", ".moreinfo", function() {
-        document.getElementById("overlay").style.display = "block";
+        console.log('hi');
+        // document.getElementById("overlay").style.display = "block";
+        $("#overlay").css("display", "block");
         let position = $(this).attr("i");
         let current = window.apiData[position];
 
@@ -95,7 +100,8 @@ $(document).ready(function() {
                         number??
                     </span>
                     <span>
-                        <a href=${current.url}>
+                        <a href=${'https://www.google.com/maps/dir/?api=1&destination=' + current.address.split(' ').join('+') + '%2C+' + current.city.split(' ').join('+') + '+' + current.state + '+' + current.postal_code}
+                            target="_blank">
                             <img src="assets/direction-icon.png" />
                             Get Directions
                         </a>
