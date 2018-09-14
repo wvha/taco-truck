@@ -19,7 +19,7 @@ $(document).ready(function() {
             // let date = 
             $("#list").append(`
                 <div class="card container">
-                    <p>Taco Truck ${current.id}</p>
+                    <p class="title">Taco Truck ${current.id}</p>
                     <p class="address">
                         ${current.address}
                         <br />
@@ -85,7 +85,7 @@ $(document).ready(function() {
                 <img id="default-image" src="assets/default-image.png" />
                 <br />
 
-                <p>Taco Truck ${current.id}</p>
+                <p class="title">Taco Truck ${current.id}</p>
                 <p class="address">
                     ${current.address}
                     <br />
