@@ -135,7 +135,8 @@ $(document).ready(function() {
 
                 <p>
                     <a class="btn btn-secondary btn-block"
-                        href="#"
+                        href=${current.url}
+                        target="_blank"
                         role="button">
                         VIEW FULL DETAILS
                     </a>
@@ -147,6 +148,7 @@ $(document).ready(function() {
     // $(".directions").on("click", function() {
     //     $("#list").css("display", "none");
     // });
+
 
     $("#list-button").on("click", function() {
         console.log('list clicked');
@@ -165,7 +167,7 @@ $(document).ready(function() {
     $(document).on("click", ".close", function() {
         console.log('exit meow');
         $("#overlay").css("display", "none");
-    })
+    });
 
 
     // DEMO
