@@ -48,6 +48,10 @@
   position: relative;
 }
 
+.main-title {
+  font-size: 2rem;
+}
+
 .title {
   font-size: 1.3rem;
 }
@@ -82,31 +86,19 @@
 
 .popup {
   padding: 1rem;
+
 }
 
 #default-image {
   width: 100%;
-  max-height: 50%;
+  /* max-height: 50%; */
 }
-
-/* #overlay {
-
-  margin: 5% 5% 5% 5%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: none;
-  background-color: green;
-  width: 90%;
-  height: 90%;
-  z-index: 2;
-} */
 
 #overlay {  
   top: 0;
   right: 0;
   width: 90%;
-  height: 90%;
+  height: 94%;
   display: none;
   margin: 5% 5% 5% 5%;
   justify-content: center;
@@ -157,6 +149,10 @@ For mobile devices
   #list {
     border-width: 0 0 0 0;
     padding: 1rem 0 0 0;
+  }
+
+  .list-hide {
+    display: none;
   }
 
   .bottom-nav {

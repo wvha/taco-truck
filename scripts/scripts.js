@@ -18,7 +18,7 @@ $(document).ready(function() {
             let current = window.apiData[i];
             // let date = 
             $("#list").append(`
-                <div class="card container">
+                <div class="card container" i=${i}>
                     <p class="title">Taco Truck ${current.id}</p>
                     <p class="address">
                         ${current.address}
@@ -33,40 +33,38 @@ $(document).ready(function() {
                         number??
                     </p>
                     <div class="container button-row">
-
                         <a class="btn btn-secondary buttons directions"
                             href="#"
                             role="button"
-
-                            i=${i}
-                            latitude=${current.latitude}
-                            longitude=${current.longitude}>
+                            i=${i}>
                             DIRECTIONS
                         </a>
                         <a class="btn btn-secondary buttons moreinfo"
                             href="#"
                             role="button"
-
                             i=${i}>
                             MORE INFO
                         </a>
-
                     </div>
                 </div>
             `);
         }
-
-        // target.innerHTML = content;
     });
 
 
 
 
     
-    $(document).on("click", ".directions", function() {
+    $(document).on("click", ".card", function() {
+        console.log('clickcard');
         let position = $(this).attr("i");
         let latitude = window.apiData[position].latitude;
         let longitude = window.apiData[position].longitude;
+        $("#default-map-text").css("display", "none");
+        $("#list").addClass("list-hide");
+        $("#map-button").addClass("nav-selected");
+        $("#list-button").removeClass("nav-selected");
+        
         $('.map').attr('src', `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=13&scale=2&size=200x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:small%7Ccolor:0xff0000%7clabel:1%7C${latitude},${longitude}&key=AIzaSyDxHzdqfYWJ0G93xVaqVEj3tCp5-oNKTMc`)
     });
 
@@ -146,12 +144,22 @@ $(document).ready(function() {
         `)
     });
 
+    // $(".directions").on("click", function() {
+    //     $("#list").css("display", "none");
+    // });
+
     $("#list-button").on("click", function() {
         console.log('list clicked');
+        $(this).addClass("nav-selected");
+        $("#map-button").removeClass("nav-selected");
+        $("#list").removeClass("list-hide");
     });
 
     $("#map-button").on("click", function() {
         console.log('map clicked');
+        $("#map-button").addClass("nav-selected");
+        $("#list-button").removeClass("nav-selected");
+        // $("#list").css("display", "none");
     });
 
     $(document).on("click", ".close", function() {
