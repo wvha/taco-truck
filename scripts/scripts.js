@@ -32,10 +32,12 @@ $(document).ready(function() {
                         <img src="assets/phone-icon.png" />
                         number??
                     </p>
-                    <p>
+                    <div class="container button-row">
+
                         <a class="btn btn-secondary buttons directions"
                             href="#"
                             role="button"
+
                             i=${i}
                             latitude=${current.latitude}
                             longitude=${current.longitude}>
@@ -44,10 +46,12 @@ $(document).ready(function() {
                         <a class="btn btn-secondary buttons moreinfo"
                             href="#"
                             role="button"
+
                             i=${i}>
                             MORE INFO
                         </a>
-                    </p>
+
+                    </div>
                 </div>
             `);
         }
@@ -57,6 +61,8 @@ $(document).ready(function() {
 
 
 
+
+    
     $(document).on("click", ".directions", function() {
         let position = $(this).attr("i");
         let latitude = window.apiData[position].latitude;
@@ -70,72 +76,88 @@ $(document).ready(function() {
         let current = window.apiData[position];
 
         $("#overlay").html(`
-            <button type="button" class="close">
-                <span>&times;</span>
-            </button>
-            
 
-            <p>Taco Truck ${current.id}</p>
-            <p class="address">
-                ${current.address}
+            <div class="popup">
+                <button type="button" id="exit">
+                    <span>&times;</span>
+                </button>
+
+                <img id="default-image" src="assets/default-image.png" />
                 <br />
-                ${current.city + ', ' + current.state + ' ' + current.postal_code}
-            </p>
-            <p class="phone-number">
-                <span>
-                    <img src="assets/phone-icon.png" />
-                    number??
-                </span>
-                <span>
-                    <a href=${current.url}>
-                        <img src="assets/direction-icon.png" />
-                        Get Directions
+
+                <p>Taco Truck ${current.id}</p>
+                <p class="address">
+                    ${current.address}
+                    <br />
+                    ${current.city + ', ' + current.state + ' ' + current.postal_code}
+                </p>
+                <p class="phone-number">
+                    <span>
+                        <img src="assets/phone-icon.png" />
+                        number??
+                    </span>
+                    <span>
+                        <a href=${current.url}>
+                            <img src="assets/direction-icon.png" />
+                            Get Directions
+                        </a>
+                    </span>
+                </p>
+
+                <table>
+                    <tr>
+                        <td>Monday</td>
+                        <td>${current.monday_open} - ${current.monday_close}</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>${current.tuesday_open} - ${current.tuesday_close}</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>${current.wednesday_open} - ${current.wednesday_close}</td>
+                    </tr>
+                    <tr>
+                        <td>Thursday</td>
+                        <td>${current.thursday_open} - ${current.thursday_close}</td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td>${current.friday_open} - ${current.friday_close}</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday</td>
+                        <td>${current.saturday_open} - ${current.saturday_close}</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>${current.sunday_open} - ${current.sunday_close}</td>
+                    </tr>
+                </table>
+
+                <p>
+                    <a class="btn btn-secondary btn-block"
+                        href="#"
+                        role="button">
+                        VIEW FULL DETAILS
                     </a>
-                </span>
-            </p>
-
-            <table>
-                <tr>
-                    <td>Monday</td>
-                    <td>${current.monday_open} - ${current.monday_close}</td>
-                </tr>
-                <tr>
-                    <td>Tuesday</td>
-                    <td>${current.tuesday_open} - ${current.tuesday_close}</td>
-                </tr>
-                <tr>
-                    <td>Wednesday</td>
-                    <td>${current.wednesday_open} - ${current.wednesday_close}</td>
-                </tr>
-                <tr>
-                    <td>Thursday</td>
-                    <td>${current.thursday_open} - ${current.thursday_close}</td>
-                </tr>
-                <tr>
-                    <td>Friday</td>
-                    <td>${current.friday_open} - ${current.friday_close}</td>
-                </tr>
-                <tr>
-                    <td>Saturday</td>
-                    <td>${current.saturday_open} - ${current.saturday_close}</td>
-                </tr>
-                <tr>
-                    <td>Sunday</td>
-                    <td>${current.sunday_open} - ${current.sunday_close}</td>
-                </tr>
-            </table>
-
-            <p>
-                <a class="btn btn-secondary buttons moreinfo"
-                    href="#"
-                    role="button">
-                    VIEW FULL DETAILS
-                </a>
-            </p>
-        
+                </p>
+            </div>
         `)
-
     });
+
+    $("#list-button").on("click", function() {
+        console.log('list clicked');
+    });
+
+    $("#map-button").on("click", function() {
+        console.log('map clicked');
+    });
+
+    $(document).on("click", "#exit", function() {
+        console.log('exit meow');
+        $("#overlay").css("display", "none");
+    })
 
 
     // DEMO
