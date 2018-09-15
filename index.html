@@ -13,10 +13,8 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
         <script type="text/javascript" src="scripts/scripts.js"></script>
     </head>
-    <body>
 
-        <!-- DEMO -->
-        <!-- <div class="navbar"> -->
+    <body>
         <nav class="navbar navbar-expand-sm navbar-light web">
             <div class="container">
                 <a class="navbar-brand" href="/"><img src="assets/rioseo-logo.png" /></a>
@@ -27,10 +25,10 @@
                 <div class="collapse navbar-collapse justify-content-end" id="nav-links">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Menu</a>
+                            <a class="nav-link" href="#">Menu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/">
+                            <a class="nav-link" href="#">
                                 <img src="assets/location-icon.png" />Truck Locator
                             </a>
                         </li>
@@ -39,17 +37,21 @@
             </div>
         </nav>
 
+        <!-- mobile navbar -->
         <nav class="navbar navbar-light navbar-mobile mobile">
-            <!-- <div class="container"> -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-links" aria-expanded="true" aria-controls="nav-links">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-links" aria-expanded="true" aria-controls="nav-links">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a href="#">
                 <img src="assets/rioseo-logo-mobile.png" />
+            </a>
+            <a href="#">
                 <img src="assets/location-icon.png" />
-            <!-- </div> -->
-
+            </a>
         </nav>
+        <!-- end mobile navbar -->
 
+        <!-- main container -->
         <div class="main">
             <div class="container header web">
                 <p class="main-title">Found Taco Trucks in your area</p>
@@ -57,50 +59,38 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="half-container" id="list">
-                        <!-- <img class="map" /> -->
+                    <div class="half-container" id="list"></div>
 
-
-                    </div>
-                    <!-- <div class="map-mobile mobile">
-                            <img class="map" />
-                    </div> -->
-                    
-                    <!-- <img class="map mobile" /> -->
                     <div class="half-container web" id="map-side">
-
-                        <!-- <div class="map-wrap"> -->
-                            <p id="default-map-text">
-                                Click a location card to load a map
-                            </p>
-                            <div id="overlay"></div>
-                            <img class="map">
-                            <a class="btn btn-secondary btn-block moreinfo mobile"
-                                href="#"
-                                role="button"
-                                i=${i}>
-                                MORE INFO
-                            </a>
-                        <!-- </div> -->
-
+                        <p id="default-map-text">
+                            Click a location card to load a map
+                        </p>
+                        <div id="overlay"></div>
+                        <img class="map">
+                        <a class="btn btn-secondary btn-block moreinfo mobile"
+                            href="#"
+                            role="button"
+                            i=${i}>
+                            MORE INFO
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- end main container -->
 
-
-                <div class="container">
-                    <div class="bottom-nav">
-                        
-                        <div class="half-nav nav-button nav-selected" id="list-button">
-                            List
-                        </div>
-                        <div class="half-nav nav-button" id="map-button">
-                            Map
-                        </div>
-                        
-                    </div>
+        <!-- bottom navbar for mobile -->
+        <div class="container">
+            <div class="bottom-nav">
+                <div class="half-nav nav-button nav-selected" id="list-button">
+                    List
                 </div>
+                <div class="half-nav nav-button" id="map-button">
+                    Map
+                </div>
+            </div>
+        </div>
+        <!-- end bottom navbar mobile -->
 
     </body>
 </html>
