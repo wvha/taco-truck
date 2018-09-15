@@ -1,5 +1,7 @@
 ## Taco Truck Locator Code Assessment
 
+View here: https://williamvha.com/taco-truck/#
+
 Taco Truck Co. would like a simple truck locator to be created. This locator will show the businesses where the taco trucks are parked in front of.
 
 You are given an API call that provides you with this location data in JSON format. The API call will respond to GET requests to the following URL: https://my.api.mockaroo.com/locations.json?key=a45f1200
