@@ -30,7 +30,7 @@ $(document).ready(function() {
                     </p>
                     <p class="phone-number">
                         <img src="assets/phone-icon.png" />
-                        number??
+                        123-456-7890
                     </p>
                     <div class="container button-row">
                         <a class="btn btn-secondary buttons directions"
@@ -65,8 +65,7 @@ $(document).ready(function() {
         $("#list").addClass("list-hide");
         $("#map-button").addClass("nav-selected");
         $("#list-button").removeClass("nav-selected");
-        $(".moreinfo-mobile").attr("i", position);
-        // $("#overlay").css("display", "none");
+        $(".moreinfo").attr("i", position);
         $("#map-side").css("display", "block");
         $('.map').attr('src', `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=13&scale=2&size=200x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:small%7Ccolor:0xff0000%7clabel:1%7C${latitude},${longitude}&key=AIzaSyDxHzdqfYWJ0G93xVaqVEj3tCp5-oNKTMc`)
     });
@@ -94,12 +93,12 @@ $(document).ready(function() {
                     <br />
                     ${current.city + ', ' + current.state + ' ' + current.postal_code}
                 </p>
-                <p class="phone-number">
-                    <span>
+                <p>
+                    <span class="phone-number">
                         <img src="assets/phone-icon.png" />
-                        number??
+                        123-456-7890
                     </span>
-                    <span>
+                    <span class="phone-number">
                         <a href=${'https://www.google.com/maps/dir/?api=1&destination=' + current.address.split(' ').join('+') + '%2C+' + current.city.split(' ').join('+') + '+' + current.state + '+' + current.postal_code}
                             target="_blank">
                             <img src="assets/direction-icon.png" />
@@ -167,7 +166,9 @@ $(document).ready(function() {
         console.log('map clicked');
         $("#map-button").addClass("nav-selected");
         $("#list-button").removeClass("nav-selected");
-        // $("#list").css("display", "none");
+        $("#map-side").css("display", "block");
+        $("#list").addClass("list-hide");
+        $("#overlay").css("display", "none");
     });
 
     $(document).on("click", ".close", function() {
