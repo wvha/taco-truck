@@ -1,22 +1,17 @@
-let date = new Date();
-let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-let todayClose = days[date.getDay()].toLowerCase() + "_close";
-
 $(document).ready(function() {
+    let date = new Date();
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let todayClose = days[date.getDay()].toLowerCase() + "_close";
+
     $.ajax({
         method: "GET",
         url: 'https://my.api.mockaroo.com/locations.json?key=a45f1200',
         dataType: 'json'
     }).success(function (response) {
-        // console.log(response);
         window.apiData = response;
-        console.log('apidata: ', apiData);
-        let target = document.getElementById("list");
-        
 
         for (let i = 0; i < response.length; i++) {
             let current = window.apiData[i];
-            // let date = 
             $("#list").append(`
                 <div class="card container" i=${i}>
                     <p class="title">Taco Truck ${current.id}</p>
@@ -52,33 +47,44 @@ $(document).ready(function() {
         }
     });
 
+    // cards from list
+    // opens map in map-side
 
-
-
-    
-    $(document).on("click", ".card", function() {
-        console.log('clickcard');
+    $(document).on("click", ".card", function(e) {
         let position = $(this).attr("i");
         let latitude = window.apiData[position].latitude;
         let longitude = window.apiData[position].longitude;
+        switchListToMap(); 
+        if ($("#overlay").attr("i") !== position) {
+            $("#overlay").css("display", "none");
+        }
+        if ($("#overlay").css("display") === "none") {
+            $(".map").css("opacity", "1");
+        }
         $("#default-map-text").css("display", "none");
         $("#list").addClass("list-hide");
-        $("#map-button").addClass("nav-selected");
-        $("#list-button").removeClass("nav-selected");
-        $(".moreinfo").attr("i", position);
         $("#map-side").css("display", "block");
+        $("#after-map").html(`                     
+            <a class="btn btn-secondary btn-block moreinfo mobile"
+                href="#"
+                role="button"
+                i=${position}
+                >
+                MORE INFO
+            </a>`)
         $('.map').attr('src', `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=13&scale=2&size=200x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:small%7Ccolor:0xff0000%7clabel:1%7C${latitude},${longitude}&key=AIzaSyDxHzdqfYWJ0G93xVaqVEj3tCp5-oNKTMc`)
     });
 
+    // More info button 
+    // loads information in map-side
+
     $(document).on("click", ".moreinfo", function() {
-        console.log('hi');
-        // document.getElementById("overlay").style.display = "block";
-        $("#overlay").css("display", "block");
         let position = $(this).attr("i");
         let current = window.apiData[position];
-
+        $("#overlay").css("display", "block");
+        $("#overlay").attr("i", position);
+        $(".map").css("opacity", ".5");
         $("#overlay").html(`
-
             <div class="popup">
                 <button type="button" class="close" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -137,7 +143,6 @@ $(document).ready(function() {
                         <td>${current.sunday_open} - ${current.sunday_close}</td>
                     </tr>
                 </table>
-
                 <p>
                     <a class="btn btn-secondary btn-block"
                         href=${current.url}
@@ -150,13 +155,15 @@ $(document).ready(function() {
         `)
     });
 
-    // $(".directions").on("click", function() {
-    //     $("#list").css("display", "none");
-    // });
+    // Button click events
 
+    let switchListToMap = function() {
+        $("#list-button").removeClass("nav-selected");
+        $("#map-button").addClass("nav-selected");
+        $("#list").addClass("list-hide");
+    }
 
     $("#list-button").on("click", function() {
-        console.log('list clicked');
         $(this).addClass("nav-selected");
         $("#map-button").removeClass("nav-selected");
         $("#list").removeClass("list-hide");
@@ -164,33 +171,13 @@ $(document).ready(function() {
     });
 
     $("#map-button").on("click", function() {
-        console.log('map clicked');
-        $("#map-button").addClass("nav-selected");
-        $("#list-button").removeClass("nav-selected");
+        switchListToMap();
         $("#map-side").css("display", "block");
-        $("#list").addClass("list-hide");
         $("#overlay").css("display", "none");
     });
 
     $(document).on("click", ".close", function() {
-        console.log('exit meow');
         $("#overlay").css("display", "none");
+        $(".map").css("opacity", "1");
     });
-
-
-    // DEMO
-    // $('.map').attr('src', 'https://maps.googleapis.com/maps/api/staticmap?center=32.823943,-117.150259&zoom=13&scale=2&size=200x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:small%7Ccolor:0xff0000%7Clabel:1%7C32.823943,-117.150259')
 });
-
-
-
-/*
-
-            <p>Taco Truck ${current.id}</p>
-            <p class="address">
-                ${current.address}
-                <br />
-                ${current.city + ', ' + current.state + ' ' + current.postal_code}
-            </p>
-
-            */
