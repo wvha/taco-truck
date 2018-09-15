@@ -126,6 +126,10 @@ Map-side CSS
   /* border-radius: 4px; */
 }
 
+td {
+  width: 50%;
+}
+
 /************************
 For non-mobile devices
 ************************/

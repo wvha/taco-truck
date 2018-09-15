@@ -1,7 +1,8 @@
 $(document).ready(function() {
     let date = new Date();
-    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    let todayClose = days[date.getDay()].toLowerCase() + "_close";
+    let days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+    let today = days[date.getDay()];
+    let todayClose = today + "_close";
 
     $.ajax({
         method: "GET",
@@ -114,31 +115,31 @@ $(document).ready(function() {
                 </p>
 
                 <table>
-                    <tr>
+                    <tr id="monday">
                         <td>Monday</td>
                         <td>${current.monday_open} - ${current.monday_close}</td>
                     </tr>
-                    <tr>
+                    <tr id="tuesday">
                         <td>Tuesday</td>
                         <td>${current.tuesday_open} - ${current.tuesday_close}</td>
                     </tr>
-                    <tr>
+                    <tr id="wednesday">
                         <td>Wednesday</td>
                         <td>${current.wednesday_open} - ${current.wednesday_close}</td>
                     </tr>
-                    <tr>
+                    <tr id="thursday">
                         <td>Thursday</td>
                         <td>${current.thursday_open} - ${current.thursday_close}</td>
                     </tr>
-                    <tr>
+                    <tr id="friday">
                         <td>Friday</td>
                         <td>${current.friday_open} - ${current.friday_close}</td>
                     </tr>
-                    <tr>
+                    <tr id="saturday">
                         <td>Saturday</td>
                         <td>${current.saturday_open} - ${current.saturday_close}</td>
                     </tr>
-                    <tr>
+                    <tr id="sunday">
                         <td>Sunday</td>
                         <td>${current.sunday_open} - ${current.sunday_close}</td>
                     </tr>
@@ -153,6 +154,7 @@ $(document).ready(function() {
                 </p>
             </div>
         `)
+        $(`#${today}`).css("font-weight", "bold");
     });
 
     // Button click events
