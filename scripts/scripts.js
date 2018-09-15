@@ -93,13 +93,13 @@ $(document).ready(function() {
                     <br />
                     ${current.city + ', ' + current.state + ' ' + current.postal_code}
                 </p>
-                <p>
+                <p class="row">
                     <span class="phone-number">
                         <img src="assets/phone-icon.png" />
                         123-456-7890
                     </span>
-                    <span class="phone-number">
-                        <a href=${'https://www.google.com/maps/dir/?api=1&destination=' + current.address.split(' ').join('+') + '%2C+' + current.city.split(' ').join('+') + '+' + current.state + '+' + current.postal_code}
+                    <span>
+                        <a class="phone-number" href=${'https://www.google.com/maps/dir/?api=1&destination=' + current.address.split(' ').join('+') + '%2C+' + current.city.split(' ').join('+') + '+' + current.state + '+' + current.postal_code}
                             target="_blank">
                             <img src="assets/direction-icon.png" />
                             Get Directions
@@ -160,6 +160,7 @@ $(document).ready(function() {
         $(this).addClass("nav-selected");
         $("#map-button").removeClass("nav-selected");
         $("#list").removeClass("list-hide");
+        $("#overlay").css("display", "none");
     });
 
     $("#map-button").on("click", function() {
