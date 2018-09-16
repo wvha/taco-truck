@@ -162,6 +162,10 @@ FOR MOBILE DEVICES
     display: flex;
   }
 
+  .card {
+    cursor:pointer
+  };
+
   .container {
     width: 100%;
   }
