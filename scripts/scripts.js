@@ -48,34 +48,6 @@ $(document).ready(function() {
         }
     });
 
-    // cards from list
-    // opens map in map-side
-
-    $(document).on("click", ".card", function(e) {
-        let position = $(this).attr("i");
-        let latitude = window.apiData[position].latitude;
-        let longitude = window.apiData[position].longitude;
-        switchListToMap(); 
-        if ($("#overlay").attr("i") !== position) {
-            $("#overlay").css("display", "none");
-        }
-        if ($("#overlay").css("display") === "none") {
-            $(".map").css("opacity", "1");
-        }
-        $("#default-map-text").css("display", "none");
-        $("#list").addClass("list-hide");
-        $("#map-side").css("display", "block");
-        $("#after-map").html(`                     
-            <a class="btn btn-secondary btn-block moreinfo mobile"
-                href="#"
-                role="button"
-                i=${position}
-                >
-                MORE INFO
-            </a>`)
-        $('.map').attr('src', `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=13&scale=2&size=200x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:small%7Ccolor:0xff0000%7clabel:1%7C${latitude},${longitude}&key=AIzaSyDxHzdqfYWJ0G93xVaqVEj3tCp5-oNKTMc`)
-    });
-
     // More info button 
     // loads information in map-side
 
@@ -157,6 +129,34 @@ $(document).ready(function() {
         $(`#${today}`).css("font-weight", "bold");
     });
 
+    // cards from list
+    // opens map in map-side
+
+    $(document).on("click", ".card", function(e) {
+        let position = $(this).attr("i");
+        let latitude = window.apiData[position].latitude;
+        let longitude = window.apiData[position].longitude;
+        switchListToMap(); 
+        if ($("#overlay").attr("i") !== position) {
+            $("#overlay").css("display", "none");
+        }
+        if ($("#overlay").css("display") === "none") {
+            $(".map").css("opacity", "1");
+        }
+        $("#default-map-text").css("display", "none");
+        $("#list").addClass("list-hide");
+        $("#map-side").css("display", "block");
+        $("#after-map").html(`                     
+            <a class="btn btn-secondary btn-block moreinfo mobile"
+                href="#"
+                role="button"
+                i=${position}
+                >
+                MORE INFO
+            </a>`)
+        $('.map').attr('src', `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=13&scale=2&size=200x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:small%7Ccolor:0xff0000%7clabel:1%7C${latitude},${longitude}&key=AIzaSyDxHzdqfYWJ0G93xVaqVEj3tCp5-oNKTMc`)
+    });
+
     // Button click events
 
     let switchListToMap = function() {
@@ -170,6 +170,7 @@ $(document).ready(function() {
         $("#map-button").removeClass("nav-selected");
         $("#list").removeClass("list-hide");
         $("#overlay").css("display", "none");
+        $("#map-side").css("display", "none");
     });
 
     $("#map-button").on("click", function() {
