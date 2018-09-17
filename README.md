@@ -1,6 +1,19 @@
 ## Taco Truck Locator Code Assessment
 
 View here: https://williamvha.com/taco-truck/#
+[x] Initial load screen presents list of locations
+[x] Clicking on location/address card from list loads a static map with latitude/longitude
+[x] Clicking "MORE INFO" button loads overlay with more info
+[x] Clicking "VIEW FULL DETAILS" opens location's url in new window
+[x] Clicking "DIRECTIONS" opens Google Maps with location's address as endpoint
+[x] Website adjusts responsively to mobile sizes
+
+[x] Clicking Truck Locator button displays input field for zip code entry
+[x] For mobile, map-side has its own "MORE INFO" button
+
+
+
+
 
 Taco Truck Co. would like a simple truck locator to be created. This locator will show the businesses where the taco trucks are parked in front of.
 
@@ -35,7 +48,7 @@ Here is a single locations sample data:
 }
 ```
 
-__The final project should look similar these mocks:__ 
+__The final project should look similar these mocks:__
 1. Initial load screen will present a list of locations.
 ![alt text](mocks/desktop-1.png "Desktop Mocks")
 
@@ -51,5 +64,3 @@ __The final project should look similar these mocks:__
 
 6. The website should be responsive such that the mobile interface looks like the following mocks.
 ![alt text](mocks/mobile.png "Mobile Mocks")
-
-__Limitations:__ You may only use the libraries that have been preloaded into the project. Please do not add any others.

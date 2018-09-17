@@ -131,7 +131,8 @@ Map-side CSS
 }
 
 td {
-  width: 50%;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 /************************
