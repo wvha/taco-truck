@@ -1,6 +1,6 @@
 ## Taco Truck Locator Code Assessment
 
-View here: https://williamvha.com/taco-truck/#
+View here: https://williamvha.com/taco-truck
 
 [x] Initial load screen presents list of locations
 
