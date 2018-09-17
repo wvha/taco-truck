@@ -1,14 +1,23 @@
 ## Taco Truck Locator Code Assessment
 
 View here: https://williamvha.com/taco-truck/#
+
 [x] Initial load screen presents list of locations
+
 [x] Clicking on location/address card from list loads a static map with latitude/longitude
+
 [x] Clicking "MORE INFO" button loads overlay with more info
+
 [x] Clicking "VIEW FULL DETAILS" opens location's url in new window
+
 [x] Clicking "DIRECTIONS" opens Google Maps with location's address as endpoint
+
 [x] Website adjusts responsively to mobile sizes
 
+Additional functions:
+
 [x] Clicking Truck Locator button displays input field for zip code entry
+
 [x] For mobile, map-side has its own "MORE INFO" button
 
 
