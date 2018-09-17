@@ -18,6 +18,11 @@ GENERAL CSS
   justify-content: space-around;
 }
 
+.form-toggle {
+  display: none;
+  width: 100px;
+}
+
 /******
 font CSS
 *******/
@@ -108,7 +113,7 @@ Map-side CSS
   width: 100%;
 }
 
-#overlay {  
+#overlay {
   top: 0;
   right: 0;
   width: 90%;
@@ -218,7 +223,7 @@ FOR MOBILE DEVICES
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
   }
   .nav-selected {
     background-color: orange;

@@ -48,7 +48,7 @@ $(document).ready(function() {
         }
     });
 
-    // More info button 
+    // More info button
     // loads information in map-side
 
     $(document).on("click", ".moreinfo", function() {
@@ -129,6 +129,9 @@ $(document).ready(function() {
         $(`#${today}`).css("font-weight", "bold");
     });
 
+
+
+
     // cards from list
     // opens map in map-side
 
@@ -136,17 +139,13 @@ $(document).ready(function() {
         let position = $(this).attr("i");
         let latitude = window.apiData[position].latitude;
         let longitude = window.apiData[position].longitude;
-        switchListToMap(); 
-        if ($("#overlay").attr("i") !== position) {
-            $("#overlay").css("display", "none");
-        }
-        if ($("#overlay").css("display") === "none") {
-            $(".map").css("opacity", "1");
-        }
+        switchListToMap();
+        closeOverlayOnChange(position);
+        resetOpacity();
         $("#default-map-text").css("display", "none");
         $("#list").addClass("list-hide");
         $("#map-side").css("display", "block");
-        $("#after-map").html(`                     
+        $("#after-map").html(`
             <a class="btn btn-secondary btn-block moreinfo mobile"
                 href="#"
                 role="button"
@@ -157,13 +156,31 @@ $(document).ready(function() {
         $('.map').attr('src', `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=13&scale=2&size=200x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:small%7Ccolor:0xff0000%7clabel:1%7C${latitude},${longitude}&key=AIzaSyDxHzdqfYWJ0G93xVaqVEj3tCp5-oNKTMc`)
     });
 
-    // Button click events
-
+    // CSS helper functions
     let switchListToMap = function() {
         $("#list-button").removeClass("nav-selected");
         $("#map-button").addClass("nav-selected");
         $("#list").addClass("list-hide");
     }
+
+    let closeOverlayOnChange = function(position) {
+        if ($("#overlay").attr("i") !== position) {
+            $("#overlay").css("display", "none");
+        }
+    }
+
+    let resetOpacity = function() {
+        if ($("#overlay").css("display") === "none") {
+            $(".map").css("opacity", "1");
+        }
+    }
+
+    // Button click events
+    $(".truck-locator").on("click", function() {
+        console.log('click');
+        $(".truck-locator").css("display", "none");
+        $(".form-toggle").css("display", "block");
+    })
 
     $("#list-button").on("click", function() {
         $(this).addClass("nav-selected");
